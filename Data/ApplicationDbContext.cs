@@ -1,19 +1,11 @@
-﻿using EmployeeLeaveManagementAPI.Models;
-using Microsoft.EntityFrameworkCore;
+﻿{
+    "ConnectionStrings": {
+        "DefaultConnection": "Server=localhost;Database=EmployeeLeaveManagementDb;Trusted_Connection=True;TrustServerCertificate=True;"
+    },
 
-namespace EmployeeLeaveManagementAPI.Data
-{
-    public class ApplicationDbContext : DbContext
-    {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-            : base(options)
-        {
-        }
+  "Logging": {
+        ...
+  },
 
-        public DbSet<Employee> Employees { get; set; }
-
-        public DbSet<LeaveType> LeaveTypes { get; set; }
-
-        public DbSet<LeaveRequest> LeaveRequests { get; set; }
-    }
+  "AllowedHosts": "*"
 }
