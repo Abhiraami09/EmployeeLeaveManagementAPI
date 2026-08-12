@@ -1,11 +1,19 @@
-﻿{
-    "ConnectionStrings": {
-        "DefaultConnection": "Server=localhost;Database=EmployeeLeaveManagementDb;Trusted_Connection=True;TrustServerCertificate=True;"
-    },
+﻿using EmployeeLeaveManagementAPI.Models;
+using Microsoft.EntityFrameworkCore;
 
-  "Logging": {
-        ...
-  },
+namespace EmployeeLeaveManagementAPI.Data
+{
+    public class ApplicationDbContext : DbContext
+    {
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+            : base(options)
+        {
+        }
 
-  "AllowedHosts": "*"
+        public DbSet<Employee> Employees { get; set; }
+
+        public DbSet<LeaveRequest> LeaveRequests { get; set; }
+
+        public DbSet<LeaveType> LeaveTypes { get; set; }
+    }
 }
